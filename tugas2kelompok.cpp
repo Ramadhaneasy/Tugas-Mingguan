@@ -1,33 +1,22 @@
 #include <iostream>
+#include <algorithm>
 
-int hitung_elemen_genap(int arr[], int panjang) {
-    int jumlah_genap = 0;
+const int ukuran = 7; 
 
-    for (int i = 0; i < panjang; ++i) {
-        if (arr[i] % 2 == 0) {
-            jumlah_genap++;
-        }
+void elemen(int arr[], int n) {
+    std::sort(arr, arr + n, std::greater<int>());
+
+    
+    std::cout << "Tiga elemen terbesar dalam array adalah: ";
+    for (int i = 0; i < 3; i++) {
+        std::cout << arr[i] << " ";
     }
-
-    return jumlah_genap;
 }
 
 int main() {
-    const int panjang_array = 10;
-    int array_sampel[panjang_array] = {4, 2, 9, 4, 5, 6, 7, 8, 9, 10};
+    int arr[ukuran] = {100, 5, 8, 25, 3, 20, 112};
 
-    int hasil = hitung_elemen_genap(array_sampel, panjang_array);
+    elemen(arr, ukuran);
 
-    std::cout << "Array: [";
-    for (int i = 0; i < panjang_array; ++i) {
-        std::cout << array_sampel[i];
-        if (i < panjang_array - 1) {
-            std::cout << ", ";
-        }
-    }
-    std::cout << "]" << std::endl;
-
- std::cout << "Jumlah elemen genap: " << hasil << std::endl;
-
-return 0;
+    return 0;
 }
